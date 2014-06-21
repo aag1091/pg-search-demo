@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>PgSearchDemo</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "PG Search Demo" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <h3><%= link_to "PG Search Demo", root_path %><h3>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+    <br>
+    <h3><%= link_to "Categories", categories_path %>|<%= link_to "Authors", authors_path %>|<%= link_to "Posts", posts_path %></h3>
+
+  </body>
 </html>
