@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'acts-as-taggable-on'
 
 gem 'foundation-rails'
+
+gem 'pg_search'

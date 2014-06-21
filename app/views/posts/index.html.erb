@@ -1,5 +1,16 @@
 <h1>Listing posts</h1>
 
+<div class="row">
+  <div class="large-4 push-2 columns">
+    <%= form_tag posts_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -18,7 +29,7 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.short_description %></td>
-        <td><%= post.content %></td>
+        <td><%= post.content.truncate(10) %></td>
         <td><%= post.category.name %></td>
         <td><%= post.author.first_name + ' ' + post.author.last_name %></td>
         <td><%= post.tags.map(&:name).join(', ') %></td>
